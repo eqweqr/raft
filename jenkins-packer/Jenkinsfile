@@ -4,11 +4,6 @@ pipeline {
         PACKER_SH = '/opt/yandex-packer/packer build -color=false'
     }
     stages {
-        stage('Core') {
-            steps {
-                sh label: '', script: "${env.PACKER_SH} ./jenkins-packer/packer/base.json"
-            }
-        }
         stage('Role-Based') {
             steps {
                 parallel(
